@@ -8,35 +8,49 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../projects/index.html">Projects</a></li>
-            <li><a href="../contact/index.html">Contact</a></li>
-            <li>Resume</li>
-            <li><a href="https://www.github.com/cammyt5" target="_blank">GitHub</a></li>
+        <ul class="nav">
+            <li class="nav"><a href="../index.html">Home</a></li>
+            <li class="nav"><a href="../projects/index.html">Projects</a></li>
+            <li class="nav"><a href="../contact/index.html">Contact</a></li>
+            <li class="nav"><a class="current">Resume</a></li>
+            <li class="nav"><a href="https://www.github.com/cammyt5" target="_blank">GitHub</a></li>
         </ul>
     </nav>
     <h1>Resume</h1>
 
     <em>hello@camdougal.com ◦ Boston & Springfield, MA</em>
-    <section id="education">
+
+    <section>
         <h2>Education</h2>
-        <ul>
-            <li>Massachusetts Institute of Technology, Class of 2025</li>
-            <li>Pope Francis Preparatory School, Class of 2020</li>
-        </ul>
+            <div class="resume">
+                <article>
+                    <p class="resume"><b>Massachusetts Institute of Technology</b></p>
+                    <p class="resume">Class of 2025</p>
+                    <p class="resume">GPA: 5.0</p>
+                </article>
+                <article>
+                    <p class="resume"><b>Pope Francis Preparatory School</b></p>
+                    <p class="resume">Class of 2020</p>
+                </article>
+            </div>
     </section>
 
-    <section id="work-experience">
+    <section>
         <h2>Work Experience</h2>
-        <ul>
-            <li><p>U.S. Department of Transportation Volpe Center, <em>Community Planner - Student Trainee</em><br>
-                <time datetime="2023-06">June 2023</time> to <time datetime="2023-11">November 2023</time><br>
-                Automated a process for validating the location of 6000 FAA infrastructure sites using a topographic map API and Python to make environmental remediation efforts possible.</p></li>
-            <li><p>City of Phoenix Office of Heat Response and Mitigation, <em>Tree Canopy Spatial/GIS Data Specialist</em><br>
-                <time datetime="2023-01">January 2023</time><br>
-                Designed and documented a reproducible process for comparing canopy coverage over time using USGS LIDAR data and R, allowing the city to track their tree coverage progress without relying on outside consultants.</p></li>
-            </ul>
+            <div class="resume">
+                <article>
+                    <p class="resume"><b>U.S. Department of Transportation Volpe Center</b></p>
+                    <p class="resume"><em>Community Planner - Student Trainee</em></p>
+                    <p class="resume"><time datetime="2023-06">June 2023</time> to <time datetime="2023-11">November 2023</time></p>
+                    <p class="resume">Automated a process for validating the location of 6000 FAA infrastructure sites using a topographic map API and Python to make environmental remediation efforts possible.</p>
+                </article>
+                <article>
+                    <p class="resume"><b>City of Phoenix Office of Heat Response and Mitigation</b></p>
+                    <p class="resume"><em>Tree Canopy Spatial/GIS Data Specialist</em></p>
+                    <p class="resume"><time datetime="2023-01">January 2023</time></p>
+                    <p class="resume">Designed and documented a reproducible process for comparing canopy coverage over time using USGS LIDAR data and R, allowing the city to track their tree coverage progress without relying on outside consultants.</p>
+                </article>
+            </div>
     </section>
 
     <section id="skills">
