@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><script src="Vis%20&amp;%20Society%20Assignment%202_files/page-script.js" id="bw-fido2-page-script"></script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Vis &amp; Society Assignment 2</title>
+	<link rel="stylesheet" href="Vis%20&amp;%20Society%20Assignment%202_files/report.css">
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Cameron Dougal</strong> — <em>cdougal@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Upzoning</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li><b>What towns in the Boston area have the highest percentage of single-family zoning?</b></li>
+				<p>I was inspired largely by this line in the <a href="https://www.bostonindicators.org/-/media/indicators/boston-indicators-reports/report-files/exclusionarybydesign_report_nov_8.pdf">“Exclusionary by Design”</a> report (included in the Upzoning subtheme readings): “Suburbanites had watched meadows and woods, orchards and fields —beloved landscapes—quickly turn to housing, yards, and pavement.” Boston-area towns downzoned in the mid-20th century for a variety of reasons - racist/classist intentions, conservation/anti-development pressures, and economic concerns, to name a few. The question is how decisions made over sixty years ago line up with the zoning codes that Boston-area towns adhere to today. Do the towns further from Boston, with more “orchards and fields” to protect in the era of downzoning, have more restrictive single-family zoning codes today? Is there a larger spatial pattern that plays out across the region, or did towns act independently enough that the single-family zoning map is fragmented?
+				<br><br>This question is also fueled by my personal experience growing up in Western Massachusetts and my desire to learn more about towns in Eastern Massachusetts. Where does “the city” end and suburbia, familiar to my upbringing begin?
+				</p>
+				<li><b>Do towns along transit corridors have proportionately less single-family housing?</b></li>
+				<p>This question is inspired by my familiarity, through DUSP transportation classes, with the MBTA Communities law and what it’s trying to achieve: large-scale upzoning along transit corridors that can relieve the state’s housing crisis, supporting the MBTA, and creating less car-dependant communities. I believe this is great policy - communities shouldn’t be able to both have access to the MBTA and maintain exclusionary, unsustainable housing. However, I wonder if these communities already have a high housing density due to their access to transit. That is to say, do towns with transit access still have lots of room for improvement when it comes to allowing non-single-family housing, or does the new law unfairly target municipalities that are already contributing to the housing solution?
+				<br><br>This will be an increasingly important discussion as <a href="https://www.aei.org/op-eds/after-miltons-mbta-housing-defeat-the-way-forward-is-with-persuasion-not-mandates/">Milton’s</a> voters have decided not to comply with the MBTA Communities law. Where does the burden of responsibility fall in the state? What is the geographic distribution of the problem now?</p>
+				<li><b>Are areas zoned for single-family housing disproportionately white?</b></li>
+				<p>This question was largely inspired by the <a href="https://www.washingtonpost.com/dc-md-va/2023/10/20/missing-middle-housing-comic/?pwapi_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZWFzb24iOiJnaWZ0IiwibmJmIjoxNzA4MzE4ODAwLCJpc3MiOiJzdWJzY3JpcHRpb25zIiwiZXhwIjoxNzA5NzAxMTk5LCJpYXQiOjE3MDgzMTg4MDAsImp0aSI6IjE3M2Y3NDQ4LTE0MmItNDg5YS04ZTEwLTYwMzgyYzkyYWYyZCIsInVybCI6Imh0dHBzOi8vd3d3Lndhc2hpbmd0b25wb3N0LmNvbS9kYy1tZC12YS8yMDIzLzEwLzIwL21pc3NpbmctbWlkZGxlLWhvdXNpbmctY29taWMvIn0.BUpoD-aCmwQFGUCPfwgIxpyDEBBWeK55QC82usrsZes">Washington Post comic</a> that was part of the Upzoning subtheme readings, as well as my other education with the racist history of redlining and the way that it has persisted into modern zoning codes. Zoning codes in many communities were created to prevent the type of housing that black and other disadvantaged communities could afford. My question is to what extent the modern distribution of single-family housing aligns with population demographics. That is to say, are single-family communities still white like they set out to be in the 20th century, or have socioeconomic trends shifted enough to largely allow the people originally excluded from these communities?
+				<br><br>Growing up in Springfield, MA, I was part of a largely single-family suburban community that was largely Polish-American. Thinking back, most of the non-white families I knew lived in multi-family buildings, now illegal under modern housing codes, like in <a href="https://cityobservatory.org/the-illegal-city-of-somerville/">Somerville</a>. This lived experience leads me to believe that single-family-zoned areas will still be predominantly white in the metro Boston area. Will the data back this lived experience up?</p>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Dataset Overview</h2>
+			<p>
+				I started by reviewing the attributes described in the metadata and inspecting the data table directly. The dataset is based off of the Metropolitan Area Planning Council zoning map. All non-housing zones have been excluded, while all single-family housing zones and other  (non-single-family) housing zones have been combined into a single geospatial polygon (and row on the table). For each polygon, the attributes include:
+				<br>
+
+				<ul>
+					<li>The municipality the area belongs to;</li>
+					<li>The percentage of residential land area in that municipality that is zoned as single-family;</li>
+					<li>If the municipality is an MBTA Community;</li>
+					<li>And a variety of census data attributes, including:
+						<ul>
+							<li>population counts (broken down by age, sex, race, and ethnicity), and</li>
+							<li>household counts (including family and non-family household counts and bracketed household income counts).</li>
+						</ul>
+					</li>
+				</ul>
+
+				Importantly, reviewing the metadata revealed that splitting each municipality into merged regions of single-family zoning and other housing zoning meant that there were sometimes two entries for one municipality. This data quality consideration would become important while tabulating data and creating visualizations later on.
+				<br><br>
+				I also noticed that the zoning types included in this dataset - single-family and other housing - may not account for housing that is found in a mixed-use zone. However, it’s impossible to know whether this is true since the metadata does not reveal how the “other housing” field was formed from the underlying MAPC Zoning Atlas data. Though I don’t account for this potential source of error in my visualizations, it is important to keep in mind that the share of  “other housing” in each municipality could be lower than reality.
+			</p>
+		</section>
+
+		<section>
+			<h2>Discoveries &amp; Insights</h2>
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 1.png" alt="">
+				<figcaption>
+					I began my investigation of my initial questions by visualizing, for each municipality, the percent of land zoned for housing that is designated for only single family housing. The maximum of the %_single_family field was used to account for the duplicate entries for each municipality, since the percentage was the same in both entries.
+					
+					We observe a few municipalities where all housing is zoned as single-family, including Hanover, Wenham, Nahant, Hopkinton, Duxbury, Dover, and Bolton. Given my familiarity with the urban form of many of these towns, this was not surprising to me. From the top, there is a gradual drop-off to lower percentages of single-family housing, with only a few municipalities (Acton, Gloucester, Revere, Wakefield, North Reading, Essex, and Stow) with a makeup of single-family housing between 20% and 0%. 
+
+					Most surprising, however, were 40 out of 101 municipalities with a reported 0% share of single-family zoned land. This prompted me to check for null values, which did not exist in the data. As far as I can tell (using only this dataset), this is actually the zoning makeup of these communities.
+				</figcaption>
+			</figure>
+			<p>This prompted a new question: how does single-family zoning correlate with the actual number of single-family households? I return to this question later in the analysis.</p>
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 2.png" alt="">
+				<figcaption>
+				Before moving on, I made a quick adjustment to the previous chart, omitting the municipalities with zero single-family zoning to allow for a closer inspection of the non-zero values.
+				As with above, from the top there is a gradual drop-off to lower percentages of single-family housing, with only a few municipalities (Acton, Gloucester, Revere, Wakefield, North Reading, Essex, and Stow) with a makeup of single-family housing between 20% and 0%. 
+				</figcaption>
+			</figure>
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 3.png" alt="">
+				<figcaption>
+				The first charts made me consider how municipalities compare to each other not only quantitatively, but also spatially. The next visualization I created mapped the municipality boundaries, with hue used to signify the percent of residential zoning that is single-family zoned.
+				This map does not demonstrate an obvious, universal trend. In some areas, such as directly west of Boston, the trend follows what I expected: in municipalities further away from the city center, there is a greater proportion of single-family zoned land, which aligns with my understanding of typical urban density gradients. However, this trend is not as obvious anywhere else on the map, especially because of the municipalities with no recorded single-family zoning. 
+				</figcaption>
+			</figure>
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 7.JPG" alt="">
+				<figcaption>
+					Since hue alone does not allow for the clearest comparison between values, I also created a map that uses bubbles as an additional mark, with each bubble’s size similarly scaled to the percent of residentially-zoned land that is zoned for single-family housing.
+					The trend from the previous graph is now more obvious: in municipalities further away from the city center, there is a greater proportion of single-family zoned land.
+				</figcaption>
+			</figure>
+			<p>These zero values reinforced my desire to inspect the actual makeup of housing in each municipality, not just the makeup of zoning. I moved on to consider how, in each municipality, the percentage of single-family households among all housing compared to the percent of residential zoning that is single-family zoned. I planned to do this by calculating (fhh) / (fhh + nfhh), where fhh is the attribute “family households” and nfhh is the attribute “non-family households.” However, after researching the Census definitions of these attributes, I found that they did not mean what I originally thought they did. A “family household” is not a single-family household, but rather any dwelling where a group of related people resides. Either type of household, family or non-family, can be a single-family structure. This information forced me to switch gears and instead consider density by comparing how, in each municipality, the average number of people living in each dwelling compared to the percent of residential zoning that is single-family zoned. I did this to see whether more single-family zoning correlates with smaller average household sizes.
+			</p>
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 4.png" alt="">
+				<figcaption>
+					I calculated the Avh Hh Occupancy field by taking a weighted average of the household size fields found in the original dataset. Note that because each household of size 7+ was assumed to have exactly 7 occupants, these average values are slightly lower than reality. However, the overall trend should remain roughly the same. I also truncated the Y axis, since only the difference between points was important, not the ratio between each value.
+					<br><br>
+					There was no major discernible trend within this graph - all occupancy levels were found across all zoning distributions. The only pattern of note is that municipalities with no land zoned for single-family use had, on average, have lower average occupancy numbers and more evenly distributed occupancy numbers across the board. This may be the result of a greater variety of housing options, such as more availability of apartments and smaller dwellings in these municipalities.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 5.JPG" alt="">
+				<figcaption>
+					I moved onto my next question: relating transit access to single-family zoning. I created a graph comparing single-family zoning makeup between MBTA communities (labeled “1”) and non-MBTA communities (labeled “0”). However, upon inspecting the underlying data for each category, I noticed three things. First, I had not accounted for the municipalities with multiple entries in the data, meaning the averages are not accurate. I accounted for this by filtering out one value for any municipality with two entries. The second thing I noticed was that Boston was classified as a non-MBTA community. Though this makes sense in the context of the MBTA Communities law (Boston’s existing density means it does not need to be upzoned under the law), I decided to recategorize Boston since I am trying to analyze transit access. I made the next graph with these two adjustments.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 6.JPG" alt="">
+				<figcaption>
+					This corrected graph seems to indicate that MBTA communities have less single-family zoning as a share of all housing zoning when compared to non-MBTA communities. However, the third thing I noted upon spot-checking my data was that there are only three municipalities left in the dataset - Hudson, Milford, and Bolton - not classified as MBTA communities. In the end, this is likely not enough data points to draw a meaningful average from. Analyzing this question in a more rigorous way would require either data from more municipalities outside the Boston metro area or measuring transit access using a better attribute than MBTA community status, such as percent of homes within a 10-minute walk of transit.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/combined.JPG" alt="">
+				<figcaption>
+					Finally, I decided to move onto my final question: investigating the racial makeup of single-family zoned areas versus areas zoned for other housing types. To start, I created a map of each municipality’s percentage of white residents, to allow a side-by-side comparison with my earlier single-family zoning map. To do this, I combined the population statistics for each municipality when municipalities had multiple entries in the data table. Though it appears that some of the areas with the greatest proportion of single-family zoning also have the whitest population, it is difficult to see an overall trend because of the zero values in the single-family zoning map. For this reason, I also created a scatter plot like before, seen in the next visualization.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 9.JPG" alt="">
+				<figcaption>
+					Though there’s no major overall trend, we can notice one thing: the municipalities with no single-family zoning have a wider range of racial makeups. This is in contrast to the municipalities with housing zoning that is composed of 90-100% single-family zoning, almost all of which are 75-97% white. Towns that have maintained exclusionary single-family zoning have also maintained a largely white population.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%202_files/Sheet 10.png" alt="">
+				<figcaption>
+					While creating the previous visualization, I thought of one additional way to investigate this question. I went back to the dataset and combined the population data across the regions of single-family zoning and regions of other housing zoning. This allows a direct comparison of composition of each census-designated race within each type of zoned area, across all of the Boston metropolitan area. This visualization confirms (more clearly) the conclusion above: single-family zoned areas have a significantly whiter population than areas of other types of zoning. The hispanic/latinx and black populations have the biggest proportional difference among all of the census-designated races, at 208% and 147% differences, respectively.
+				</figcaption>
+			</figure>
+			<p>While there were a few questions I still wanted to explore (such as zoning makeup versus income levels or average age, analysis of other racial trends, and zoning makeup versus actual counts of single-family homes), I decided to leave my analysis here, satisfied with the exploration of my questions using the dataset.</p>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>Using zoning data is not necessarily the best way to get a sense of the housing makeup of a town, since many towns may have many single-family structures without formal single-family zones. The towns without any single-family zoning made analyzing this data difficult in some scenarios. However, I was able to draw some solid conclusions from this dataset:</p>
+			<ul>
+				<li>in municipalities further away from the city center, there is generally a greater proportion of single-family zoned land</li>
+				<li>municipalities with no land zoned for single-family use had, on average, have lower average occupancy numbers and more evenly distributed occupancy numbers across the board. This may be the result of a greater variety of housing options, such as more availability of apartments and smaller dwellings in these municipalities.</li>
+				<li>based on limited data from non-MBTA communities, it appears that MBTA communities have less single-family zoning as a share of all housing zoning when compared to non-MBTA communities</li>
+				<li>towns that have maintained exclusionary single-family zoning have also maintained a largely white population.</li>
+			</ul>
+		</section>
+	</main>
+
+
+</body></html>
