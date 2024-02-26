@@ -1,5 +1,6 @@
 html {
   --color-accent: rgb(51, 102, 0);
+  color-scheme: dark;
 }
 
 body {
@@ -25,7 +26,8 @@ nav {
   margin-bottom: 3em;
   border-bottom-width: 0.1em;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
 }
 
 a {
@@ -39,7 +41,7 @@ a {
 a.current {
   border-bottom-width: 0.3em;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
   padding-bottom: 0.2em;
 }
 
@@ -47,7 +49,7 @@ a:hover {
   border-bottom-width: 0.3em;
   border-bottom-style: solid;
   padding-bottom: 0.2em;
-  border-bottom-color: var(--color-accent);
+  border-bottom-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 form {
@@ -135,4 +137,17 @@ h6 {
 
 p.resume {
   margin: 0;
+}
+
+label.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font: inherit;
+  font-size: 80%;
+}
+
+select {
+  font: inherit;
+  font-size: 80%;
 }
