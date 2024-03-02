@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><script src="Vis%20&amp;%20Society%20Assignment%203_files/page-script.js" id="bw-fido2-page-script"></script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Vis &amp; Society Assignment 3</title>
+	<link rel="stylesheet" href="Vis%20&amp;%20Society%20Assignment%203_files/report.css">
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Design
+		</h1>
+
+		<p>
+			<strong>Cameron Dougal</strong> — <em>cdougal@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Guiding Question: How did the age distribution of the US population change between 1990 and 2000?</h2>
+			<h3>Phase One: Sketching Visualizations</h3>
+
+      <figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%203_files/sketch1.JPG" alt="">
+				<figcaption>
+					Sketch #1: Dot Density
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale:
+			</p>
+
+			<ul>
+				<li>When I see a population count, I imagine large groups of people. I wondered how effective it would be to visualize these numbers in this way.</li>
+				<li>I was hoping that this sketch would communicate the relative differences between years within each age range, as well as the general makeup of the population across age ranges.</li>
+				<li>I thought this was effective at its goal of communicating the relative size of each age range. The visualization is easy to interpret because of the use of only one type of symbol - a dot representing 500,000 people. The use of two colors helps to separate the two years effectively.				</li>
+				<li>However, it’s harder to see the trend across age categories than it is to compare 1990 vs. 2000 within one age category. Also, because each population count is represented by an area of dots, it can be difficult to intuitively compare the values as easily as if the dots were laid out on a line.</li>
+				<li>In the next sketch, I want to explore a visualization that allows for easier comparisons across age ranges.</li>
+			</ul>
+
+
+
+      <figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%203_files/sketch2.JPG" alt="">
+				<figcaption>
+          Sketch #2: Combined Bar
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale:
+			</p>
+
+			<ul>
+				<li>I wanted to attempt a visualization that allows for easier comparisons across age ranges. For this goal, the bar chart felt like the natural choice. The challenge was to find a way to encode the differences between the two years - since the 2000 population counts were always higher than the 1990 counts, I decided to do this by partitioning each bar.
+				</li>
+				<li>I needed to make clear that the top portion of each bar didn’t represent the entirety of the 2000 population in each category, but the increase in population between 1990 and 2000. I originally had a solid fill for this section, but found that a striped pattern helped to communicate “progress” or “expansion.” Because the striped pattern is partially white like the bottom of each bar, I felt that it made clearer that the two parts of the bar should be considered together when trying to read the 2000 population for each category.
+				</li>
+				<li>As I intended, putting the age ranges side-by-side made it easier to compare both the years and the age ranges to each other.
+				</li>
+				<li>However, because the two years are combined in each bar, it’s difficult to get a sense of how big the total U.S. population was each year. In addition, despite experimenting with texture, I also thought it was still possible to misread the 2000 population of each age range due to the partitioning.
+				</li>
+				<li>For my last sketch, I wondered if I could separate the years back out while still allowing for a comparison between age ranges.
+				</li>
+			</ul>
+
+
+
+      <figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%203_files/sketch3.JPG" alt="">
+				<figcaption>
+          Sketch #3: Radial Separated Bar
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale:
+			</p>
+
+			<ul>
+				<li>For this final sketch, I wanted to bring together elements from the previous two, allowing for both easy comparison across age ranges and across years. This could have been done by taking Sketch 2 and separating each age range into two bars, but I wanted to create a graph that was more memorable than a standard bar chart.
+				</li>
+				<li>Following the bars around the circle allows for easy age range comparison within each year, while matching the colors for each age range allows for easy comparison between years. Using individual ticks makes it easy to compare length, even as the bars aren’t next to each other (especially with the added detail of every fifth tick being slightly longer). I also thought the annotations and labels helped to bring everything together. 
+				</li>
+				<li>However, it is difficult to discern small differences between age ranges, making this graph better for visualizing overall trends. In addition, not having all of the labels oriented horizontally makes reading them slightly more taxing.
+				</li>
+			</ul>
+
+
+
+      <h4>Reflection</h4>
+
+      <p>
+		In summary, I think that Sketch 1 is the easiest to understand at a glance, but doesn’t allow for granular comparisons for values that are close to each other. Sketch 2 fixes this problem by using length instead of area to encode each population count, but combining the two years into one graph may cause confusion when considering the values for the year 2000 alone. Sketch 2 also suffers from not being able to compare the overall size of the population between years. Sketch 3 calls upon the readability of the dot density concept from Sketch 1, but is linear like Sketch 2 (allowing for greater accuracy when comparing the population count of each age range) and also separates the years like Sketch 2 for clearer comparison across years. In addition, unlike both Sketches 1 and 2, the overall size of the population can be reasoned. For the second part of the assignment, I am going to iterate on Sketch 3 because it borrows what I believe to be the most effective design elements from Sketches 1 and 2, creating a visualization that is eye-catching and clear while allowing easy comparison between values.
+      </p>
+
+		</section>
+
+		<section>
+			<h3>Phase Two: Final Design</h3>
+
+			<figure>
+				<img src="Vis%20&amp;%20Society%20Assignment%203_files/A3_viz.png" alt="">
+				<figcaption>
+				Final bar chart visualization showing how the US population became larger & older between 1990 and 2000.
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h4>Design Process, Design Decisions, &amp; Reflection</h4>
+
+			<p>
+				The story I’m trying to tell through this visualization is made clear through the annotations: between 1990 and 2000, the U.S. population increased not only in size, but also in age. This means that the visualization needed to do two things: clearly show the size of the population each year and demonstrate the difference between age categories. At essence, the chart is a bar chart, as my goal is to have the reader compare the ratios between age categories (using the most intuitive mechanism: one-dimensional length). However, orienting the bars radially not only makes the visualization unique and eye-catching, but also allows for lopsidedness within the age distribution to be perceived more clearly; in 2000, when the population is more equally distributed, the chart is more “rounded” (less lopsided) to match. Each age category is given a unique color to allow for comparison to both the legend and between years. Labels allow for high-grain inspection of each data point’s value, and I also added “tick marks,” each denoting 5 million people, as a subtle detail to make the bars more easily comparable. 
+				<br><br>My visualization is not without its shortcomings. It was difficult to find a good way to label each bar without distracting from the data; using a legend requires the reader to do extra cross-referencing whenever they want to read a value. Orienting the bars radially also makes it more difficult to compare values than a standard bar chart, though I tried to mitigate this using the tick marks. Some of the smaller values (especially the highest age ranges in 1990) were overrepresented in size due to the minimum size requirement for each bar.
+				<br><br>My final visualization was an iteration of my third sketch, though with more detailed data (5-year age ranges instead of 10). As I detailed in the sketch summary above, I thought this third sketch borrows what I believe to be the most effective design elements from Sketches 1 and 2, creating a visualization that is eye-catching and clear while allowing easy comparison between values. Namely, the tick marks were inspired by the density dots in Sketch 1 and the bar chart inspired by my exploration of the concept in Sketch 2. I did choose to omit some of my Sketch 3 concepts to help focus the visualization: for example, the individual tick marks and age range labels within the center of the circle. Sketching definitely helped me to get a feel for the best way to allow for comparisons across both years and age ranges, informing a final design that I am quite satisfied with, even if it took a lot of time to fine tune the added details such as the legend, annotations, and tick marks.
+				<br><br>
+				Charts made in Tableau using <a href="https://www.thedataschool.com.au/jethro-chen/the-radial-bar-chart-in-tableau-tutorial/">a tutorial by the Data School</a>. Annotations and details created in GIMP.
+      </p>
+
+		</section>
+	</main>
+
+
+</body></html>
